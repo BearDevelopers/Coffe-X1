@@ -1,0 +1,3 @@
+name: Coffe-CombatLog
+version: '${project.version}'
+main: org.coffecombatlog.Coffe_CombatLog
