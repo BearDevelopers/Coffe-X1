@@ -1,5 +1,6 @@
 package org.coffegladiator.events;
 
+import com.mongodb.Mongo;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -25,9 +26,14 @@ public class OnDeathListener implements Listener {
     public void onDeath(PlayerDeathEvent e) {
         Player p = e.getEntity();
         Player killer = e.getEntity().getKiller();
-        souls = kills.getInt("infos." + p.getName() + "." + "mortes");
-        vitorias = kills.getInt("infos." + p.getName() + "." + "vitorias");
-        perdas = kills.getInt("infos." + p.getName() + "." + "perdas");
+        try {
+            souls = MongoDBUtils.getPlayer(p).getInteger("souls");
+            vitorias = MongoDBUtils.getPlayer(p).getInteger("vitorias");
+            perdas = MongoDBUtils.getPlayer(p).getInteger("percas");
+        }
+        catch (Exception es) {
+            MongoDBUtils.savePlayer(p, 0,0,0);
+        }
 
         if (Coffe_Gladiators.battleplayers.containsKey(p.getUniqueId()) || Coffe_Gladiators.battleplayers.containsKey(killer.getUniqueId())) {
             for (Player ss : Bukkit.getOnlinePlayers()) {

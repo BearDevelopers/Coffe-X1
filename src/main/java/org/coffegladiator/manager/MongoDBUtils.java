@@ -15,12 +15,14 @@ public class MongoDBUtils {
         collection.insertOne(doc);
     }
     public static void updatePlayer(Player p, int souls, int vitorias, int percas) {
-        Document doc = new Document("uuid", p.getUniqueId())
+        Document filter = new Document("uuid", p.getUniqueId());
+        Document updatedDocument = new Document("uuid", p.getUniqueId())
                 .append("souls", souls)
                 .append("vitorias", vitorias)
                 .append("percas", percas);
-        collection.updateOne(doc, doc);
+        collection.replaceOne(filter, updatedDocument);
     }
+
     public static Document getPlayer(Player p) {
         Document doc = new Document("uuid", p.getUniqueId());
         Document getDados = collection.find(doc).first();

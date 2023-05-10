@@ -7,21 +7,33 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.coffegladiator.Coffe_Gladiators;
+import org.coffegladiator.manager.MongoDBUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 
 public class TopGuis {
+    public static int souls;
+    public static int vitorias;
+    public static int saidas;
     static FileConfiguration kills = Coffe_Gladiators.getInstance().getConfig();
 
     public static void createTopGUI(Player p) {
         Inventory gui = Bukkit.createInventory(p, 45, "Top kills");
         for (UUID players : Coffe_Gladiators.top_players.keySet()) {
             Player psps = Coffe_Gladiators.top_players.get(players);
-            int souls = kills.getInt("infos." + psps.getName() + "." + "mortes");
-            int vitorias = kills.getInt("infos." + psps.getName() + "." + "vitorias");
-            int saidas = kills.getInt("infos." + psps.getName() + "." + "saidas");
+            try {
+                souls = MongoDBUtils.getPlayer(p).getInteger("souls");
+                vitorias = MongoDBUtils.getPlayer(p).getInteger("vitorias");
+                saidas = MongoDBUtils.getPlayer(p).getInteger("saidas");
+            }catch (Exception e) {
+                souls = kills.getInt("infos." + psps.getName() + "." + "mortes");
+                vitorias = kills.getInt("infos." + psps.getName() + "." + "vitorias");
+                saidas = kills.getInt("infos." + psps.getName() + "." + "saidas");
+            }
+
             ItemStack i = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
             List<String> lore = new ArrayList<>();
             SkullMeta meta = (SkullMeta) i.getItemMeta();

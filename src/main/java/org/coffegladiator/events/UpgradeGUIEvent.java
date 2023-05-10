@@ -118,5 +118,9 @@ public class UpgradeGUIEvent implements Listener {
             }
             Coffe_Gladiators.getInstance().saveConfig();
         }
+        else {
+            return;
+        }
     }
+
 }
