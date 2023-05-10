@@ -23,7 +23,7 @@ public class SoulsCommand implements CommandExecutor {
         }
         else {
             Player p = (Player) sender;
-            Bukkit.getConsoleSender().sendMessage("Dados: " + MongoDBUtils.getPlayer(p).getInteger("souls"));
+            Bukkit.getConsoleSender().sendMessage("Dados: " + MongoDBUtils.getPlayer(p).getInteger("souls") + " Vitorias: " + MongoDBUtils.getPlayer(p).getInteger("vitorias") + " Percas: " + MongoDBUtils.getPlayer(p).getInteger("percas"));
             TopGuis.createTopGUI(p);
         }
         return false;

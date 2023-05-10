@@ -11,6 +11,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.coffegladiator.Coffe_Gladiators;
 import org.coffegladiator.apis.TitleAPI;
 import org.coffegladiator.getinfos.GetInfosConfig;
+import org.coffegladiator.manager.MongoDBUtils;
 import org.coffegladiator.manager.Utils;
 
 public class OnDeathListener implements Listener {
@@ -38,6 +39,7 @@ public class OnDeathListener implements Listener {
             souls++;
             vitorias++;
             perdas++;
+            MongoDBUtils.updatePlayer(p,souls, vitorias,perdas);
             GetInfosConfig.setSouls(p,souls);
             GetInfosConfig.setVitorys(p,vitorias);
             GetInfosConfig.setPerdas(p,perdas);

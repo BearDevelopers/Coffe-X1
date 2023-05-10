@@ -7,15 +7,19 @@ import org.coffegladiator.database.MongoDBConnection;
 
 public class MongoDBUtils {
     public static MongoCollection<Document> collection = MongoDBConnection.getDatabase().getCollection(MongoDBConnection.DATABASE_NAME);
-    public static void savePlayer(Player p, int souls) {
+    public static void savePlayer(Player p, int souls, int vitorias, int percas) {
         Document doc = new Document("uuid", p.getUniqueId())
-                .append("souls", souls);
+                .append("souls", souls)
+                .append("vitorias", vitorias)
+                .append("percas", percas);
         collection.insertOne(doc);
     }
-    public static void updatePlayer(Player p, int souls) {
+    public static void updatePlayer(Player p, int souls, int vitorias, int percas) {
         Document doc = new Document("uuid", p.getUniqueId())
-                .append("souls", souls);
-        collection.updateOne(doc,doc);
+                .append("souls", souls)
+                .append("vitorias", vitorias)
+                .append("percas", percas);
+        collection.updateOne(doc, doc);
     }
     public static Document getPlayer(Player p) {
         Document doc = new Document("uuid", p.getUniqueId());

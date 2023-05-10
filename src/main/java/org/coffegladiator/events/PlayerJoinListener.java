@@ -18,7 +18,7 @@ public class PlayerJoinListener implements Listener {
         int is = Coffe_Gladiators.getInstance().getConfig().getInt("kills." + p.getName() + "." + "mortes");
         int vitorias = kills.getInt("infos." + e.getPlayer().getName() + "." + "vitorias");
         int perdas = kills.getInt("infos." + e.getPlayer().getName() + "." + "perdas");
-        MongoDBUtils.savePlayer(p, is);
+        MongoDBUtils.savePlayer(p, is, vitorias,perdas);
         kills.set("infos." + p.getName() + "." + "mortes", is);
         kills.set("infos." + p.getName() + "." + "vitorias", vitorias);
         kills.set("infos." + p.getName() + "." + "perdas", perdas);
