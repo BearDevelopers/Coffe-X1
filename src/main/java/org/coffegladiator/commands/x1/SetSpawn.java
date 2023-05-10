@@ -1,4 +1,4 @@
-package org.coffegladiator.commands;
+package org.coffegladiator.commands.x1;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -8,6 +8,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.coffegladiator.Coffe_Gladiators;
 import org.coffegladiator.apis.TitleAPI;
+import org.coffegladiator.manager.Utils;
+import org.graalvm.compiler.core.common.util.Util;
 
 public class SetSpawn implements CommandExecutor {
     FileConfiguration config = Coffe_Gladiators.getInstance().getConfig();
@@ -22,13 +24,8 @@ public class SetSpawn implements CommandExecutor {
                 Player p = (Player) sender;
                 try {
                     if (p.hasPermission(config.getString("camarote.permission"))) {
-                        config.set("camarote.location.x", p.getLocation().getX());
-                        config.set("camarote.location.y", p.getLocation().getY());
-                        config.set("camarote.location.z", p.getLocation().getZ());
-                        config.set("camarote.location.world-name", p.getLocation().getWorld().getName());
-                        Coffe_Gladiators.getInstance().saveConfig();
+                        Utils.saveSpawn(p);
                         titles.sendFullTitle(p, 10,10,10, "Spawn", "Setado com sucesso");
-
                     }
                 } catch (Exception es) {
                     p.sendMessage(ChatColor.RED + "Houve um erro ao salvar o spawn na config!");

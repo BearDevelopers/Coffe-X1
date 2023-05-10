@@ -1,0 +1,27 @@
+camarote:
+  permission: "plugin.uses"
+
+setspawn:
+  permission: "plugins.uses.ssasasasasa"
+desafiar:
+  permission: "desafiar"
+player:
+  make-out-config: true
+  permission: "use.use.use.as"
+upgrade:
+  sharpness:
+    cost: 10
+  protection:
+    cost: 10
+  speed:
+    cost: 5
+  strenght:
+    cost: 4
+
+
+
+
+
+
+
+

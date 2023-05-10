@@ -1,4 +1,4 @@
-package com.dev.reach.apis;
+package org.coffegladiator.apis;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class TitleAPI {
 
-	public void setTible(final Player player, final Integer fadeIn, final Integer stay, final Integer fadeOut,
+	public void setTitre(final Player player, final Integer fadeIn, final Integer stay, final Integer fadeOut,
 			final String title, final String subtitle) {
 		sendTitle(player, fadeIn, stay, fadeOut, title, subtitle);
 	}

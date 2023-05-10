@@ -1,24 +1,29 @@
-package rush.itensespeciais.utils;
+package org.coffegladiator.apis;
 
 import java.io.File;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.event.Listener;
+import org.coffegladiator.Coffe_Gladiators;
 
-import rush.itensespeciais.Main;
 
-public class ConfigManager implements Listener {
-	
-	public static void createNewConfig(String file) {
-		if (!new File(Main.get().getDataFolder(), file + ".yml").exists()) {
-			Main.get().saveResource(file + ".yml", false); 
+public class ConfigManager {
+
+	public static void createConfig(String file) {
+		if (!new File(Coffe_Gladiators.getInstance().getDataFolder(), file + ".yml").exists()) {
+			Coffe_Gladiators.getInstance().saveResource(file + ".yml", false);
 		}
 	}
 	
 	public static FileConfiguration getConfig(String file) {
-      	File arquivo = new File(Main.get().getDataFolder() + "/" + file + ".yml");
-      	FileConfiguration config = (FileConfiguration)YamlConfiguration.loadConfiguration(arquivo);
-      	return config;
+		try {
+			File arquivo = new File(Coffe_Gladiators.getInstance().getDataFolder() + File.separator + "kills.yml");
+			return (FileConfiguration) YamlConfiguration.loadConfiguration(arquivo);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
+	
 }

@@ -1,4 +1,4 @@
-package com.tke.classes.api;
+package org.coffegladiator.apis;
 
 import java.util.ArrayList;
 import java.util.Arrays;

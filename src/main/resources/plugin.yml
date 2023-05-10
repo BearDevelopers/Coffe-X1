@@ -1,3 +1,20 @@
-name: Coffe-CombatLog
-version: '${project.version}'
-main: org.coffecombatlog.Coffe_CombatLog
+name: Coffe-X1
+version: 1.0
+main: org.coffegladiator.Coffe_Gladiators
+commands:
+  setspawn:
+    description: 'AODAROÇA'
+  camarote:
+    description: 'OPA'
+  desafiar:
+    description: "OPAKSKASAS"
+  pos1:
+    description: "OPAKSKASAS"
+  pos2:
+    description: "OPAKSKASAS"
+  souls:
+    description: "SOULS"
+  rl1v1:
+    description: "UAUA"
+  upgrade:
+    description: "UAUA"
