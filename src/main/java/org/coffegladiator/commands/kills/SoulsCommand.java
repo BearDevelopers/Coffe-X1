@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.coffegladiator.database.MongoDBConnection;
 import org.coffegladiator.gui.TopGuis;
-import org.coffegladiator.manager.MongoDBUtils;
+import org.coffegladiator.database.MongoDBUtils;
 
 public class SoulsCommand implements CommandExecutor {
     MongoCollection<Document> collection = MongoDBConnection.getDatabase().getCollection(MongoDBConnection.DATABASE_NAME);
@@ -23,7 +23,7 @@ public class SoulsCommand implements CommandExecutor {
         }
         else {
             Player p = (Player) sender;
-            Bukkit.getConsoleSender().sendMessage("Dados: " + MongoDBUtils.getPlayer(p).getInteger("souls") + " Vitorias: " + MongoDBUtils.getPlayer(p).getInteger("vitorias") + " Percas: " + MongoDBUtils.getPlayer(p).getInteger("percas"));
+            Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Souls: " + MongoDBUtils.getPlayer(p).getInteger("souls") + " Vitorias: " + MongoDBUtils.getPlayer(p).getInteger("vitorias") + " Percas: " + MongoDBUtils.getPlayer(p).getInteger("percas"));
             TopGuis.createTopGUI(p);
         }
         return false;

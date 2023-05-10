@@ -43,10 +43,10 @@ public class UpgradeGuiCreate  {
             ItemMeta stmeta = strenght.getItemMeta();
 
             // Setando as lore
-            stmeta.setLore(LoadLore.LoadLoreQ(p,stlore));
-            shmeta.setLore(LoadLore.LoadLoreOne(p, shlore));
-            phmeta.setLore(LoadLore.LoadLoreTwo(p, prlore));
-            spmeta.setLore(LoadLore.LoadLoreThree(p,splore));
+            stmeta.setLore(LoadLore.loadLoreQ(p,stlore));
+            shmeta.setLore(LoadLore.loadLoreOne(p, shlore));
+            phmeta.setLore(LoadLore.loadLoreTwo(p, prlore));
+            spmeta.setLore(LoadLore.loadLoreThree(p,splore));
 
             // Setando os display
             shmeta.setDisplayName(ChatColor.GRAY + "Sharpness");

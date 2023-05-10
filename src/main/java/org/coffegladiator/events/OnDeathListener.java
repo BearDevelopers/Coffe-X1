@@ -1,6 +1,5 @@
 package org.coffegladiator.events;
 
-import com.mongodb.Mongo;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -12,7 +11,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.coffegladiator.Coffe_Gladiators;
 import org.coffegladiator.apis.TitleAPI;
 import org.coffegladiator.getinfos.GetInfosConfig;
-import org.coffegladiator.manager.MongoDBUtils;
+import org.coffegladiator.database.MongoDBUtils;
 import org.coffegladiator.manager.Utils;
 
 public class OnDeathListener implements Listener {

@@ -7,64 +7,73 @@ import org.coffegladiator.getinfos.GetInfosConfig;
 import java.util.List;
 
 public class LoadLore {
-    public static List<String> LoadLoreOne(Player p, List<String> shlore) {
-        String stcssss = GetInfosConfig.getLevel(p,"sharpness");
-        if (stcssss.equalsIgnoreCase("sim")) {
-            shlore.add(ChatColor.GRAY + " ");
-            shlore.add(ChatColor.GRAY + "Lvl: 1");
-            shlore.add(ChatColor.GRAY + "Aquirido: True");
-            shlore.add(ChatColor.GRAY + " ");
+    private static final int UPGRADE_COST = Coffe_Gladiators.getInstance().getConfig().getInt("upgrade.sh.cost");
+    private static final String LEVEL_1_LORE = ChatColor.GRAY + "Lvl: 1";
+    private static final String ACQUIRED_TRUE_LORE = ChatColor.GRAY + "Adquirido: True";
+    private static final String COST_LORE = ChatColor.GRAY + "Custo: " + UPGRADE_COST + " Kills";
+    private static final String BUY_LORE = ChatColor.GRAY + "Clique com o botão esquerdo para comprar";
+
+    public static List<String> loadLoreOne(Player player, List<String> lore) {
+        String sharpnessLevel = GetInfosConfig.getLevel(player, "sharpness");
+        if (sharpnessLevel.equalsIgnoreCase("sim")) {
+            lore.add(ChatColor.GRAY + " ");
+            lore.add(LEVEL_1_LORE);
+            lore.add(ACQUIRED_TRUE_LORE);
+            lore.add(ChatColor.GRAY + " ");
         } else {
-            shlore.add(ChatColor.GRAY + " ");
-            shlore.add(ChatColor.GRAY + "Custo: " + Coffe_Gladiators.getInstance().getConfig().getInt("upgrade.sh.cost") + " Kills");
-            shlore.add(ChatColor.GRAY + "Clique com o botao esquerdo para comprar");
-            shlore.add(ChatColor.GRAY + " ");
+            lore.add(ChatColor.GRAY + " ");
+            lore.add(COST_LORE);
+            lore.add(BUY_LORE);
+            lore.add(ChatColor.GRAY + " ");
         }
-        return shlore;
+        return lore;
     }
-    public static List<String> LoadLoreTwo(Player p, List<String> shlore) {
-        String stcsss = GetInfosConfig.getLevel(p,"protection");
-        if (stcsss.equalsIgnoreCase("sim")) {
-            shlore.add(ChatColor.GRAY + " ");
-            shlore.add(ChatColor.GRAY + "Lvl: 1");
-            shlore.add(ChatColor.GRAY + "Aquirido: True");
-            shlore.add(ChatColor.GRAY + " ");
+
+    public static List<String> loadLoreTwo(Player player, List<String> lore) {
+        String protectionLevel = GetInfosConfig.getLevel(player, "protection");
+        if (protectionLevel.equalsIgnoreCase("sim")) {
+            lore.add(ChatColor.GRAY + " ");
+            lore.add(LEVEL_1_LORE);
+            lore.add(ACQUIRED_TRUE_LORE);
+            lore.add(ChatColor.GRAY + " ");
         } else {
-            shlore.add(ChatColor.GRAY + " ");
-            shlore.add(ChatColor.GRAY + "Custo: " + Coffe_Gladiators.getInstance().getConfig().getInt("upgrade.sh.cost") + " Kills");
-            shlore.add(ChatColor.GRAY + "Clique com o botao esquerdo para comprar");
-            shlore.add(ChatColor.GRAY + " ");
+            lore.add(ChatColor.GRAY + " ");
+            lore.add(COST_LORE);
+            lore.add(BUY_LORE);
+            lore.add(ChatColor.GRAY + " ");
         }
-        return shlore;
+        return lore;
     }
-    public static List<String> LoadLoreThree(Player p, List<String> shlore) {
-        String stcss = GetInfosConfig.getLevel(p,"protection");
-        if (stcss.equalsIgnoreCase("sim")) {
-            shlore.add(ChatColor.GRAY + " ");
-            shlore.add(ChatColor.GRAY + "Lvl: 1");
-            shlore.add(ChatColor.GRAY + "Aquirido: True");
-            shlore.add(ChatColor.GRAY + " ");
+
+    public static List<String> loadLoreThree(Player player, List<String> lore) {
+        String protectionLevel = GetInfosConfig.getLevel(player, "protection");
+        if (protectionLevel.equalsIgnoreCase("sim")) {
+            lore.add(ChatColor.GRAY + " ");
+            lore.add(LEVEL_1_LORE);
+            lore.add(ACQUIRED_TRUE_LORE);
+            lore.add(ChatColor.GRAY + " ");
         } else {
-            shlore.add(ChatColor.GRAY + " ");
-            shlore.add(ChatColor.GRAY + "Custo: " + Coffe_Gladiators.getInstance().getConfig().getInt("upgrade.sh.cost") + " Kills");
-            shlore.add(ChatColor.GRAY + "Clique com o botao esquerdo para comprar");
-            shlore.add(ChatColor.GRAY + " ");
+            lore.add(ChatColor.GRAY + " ");
+            lore.add(COST_LORE);
+            lore.add(BUY_LORE);
+            lore.add(ChatColor.GRAY + " ");
         }
-        return shlore;
+        return lore;
     }
-    public static List<String> LoadLoreQ(Player p, List<String> shlore) {
-        String stcs = GetInfosConfig.getLevel(p,"protection");
-        if (stcs.equalsIgnoreCase("sim")) {
-            shlore.add(ChatColor.GRAY + " ");
-            shlore.add(ChatColor.GRAY + "Lvl: 1");
-            shlore.add(ChatColor.GRAY + "Aquirido: True");
-            shlore.add(ChatColor.GRAY + " ");
+
+    public static List<String> loadLoreQ(Player player, List<String> lore) {
+        String protectionLevel = GetInfosConfig.getLevel(player, "protection");
+        if (protectionLevel.equalsIgnoreCase("sim")) {
+            lore.add(ChatColor.GRAY + " ");
+            lore.add(LEVEL_1_LORE);
+            lore.add(ACQUIRED_TRUE_LORE);
+            lore.add(ChatColor.GRAY + " ");
         } else {
-            shlore.add(ChatColor.GRAY + " ");
-            shlore.add(ChatColor.GRAY + "Custo: " + Coffe_Gladiators.getInstance().getConfig().getInt("upgrade.sh.cost") + " Kills");
-            shlore.add(ChatColor.GRAY + "Clique com o botao esquerdo para comprar");
-            shlore.add(ChatColor.GRAY + " ");
+            lore.add(ChatColor.GRAY + " ");
+            lore.add(COST_LORE);
+            lore.add(BUY_LORE);
+            lore.add(ChatColor.GRAY + " ");
         }
-        return shlore;
+        return lore;
     }
 }
