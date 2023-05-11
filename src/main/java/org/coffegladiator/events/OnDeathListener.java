@@ -44,7 +44,7 @@ public class OnDeathListener implements Listener {
             souls++;
             vitorias++;
             perdas++;
-            MongoDBUtils.updatePlayer(p,souls, vitorias,perdas);
+            MongoDBUtils.updatePlayer(p,souls, vitorias,perdas, 0,0,0);
             GetInfosConfig.setSouls(p,souls);
             GetInfosConfig.setVitorys(p,vitorias);
             GetInfosConfig.setPerdas(p,perdas);

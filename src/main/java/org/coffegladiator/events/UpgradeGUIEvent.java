@@ -8,6 +8,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.coffegladiator.Coffe_Gladiators;
+import org.coffegladiator.database.MongoDBUtils;
+
 import static org.coffegladiator.events.OnDeathListener.kills;
 
 
@@ -93,15 +95,13 @@ public class UpgradeGUIEvent implements Listener {
             }
             if (e.getClick() == ClickType.LEFT && e.getCurrentItem().getType() == Material.DIAMOND_AXE) {
                 try {
-                    String sc = kills.getString("infos." + p.getName() + "." + "strenght" + "." + "comprada");
-                    int souls = kills.getInt("infos." + e.getWhoClicked().getName() + "." + "mortes");
+                    int souls = MongoDBUtils.getPlayer(p).getInteger("souls");
                     try {
-                        if (sc.equalsIgnoreCase("sim")) {
+                        if (MongoDBUtils.getStrenght(p,1)) {
                             p.sendMessage(ChatColor.RED + "Você ja comprou este item!");
                         }
                         else {
-                            kills.set("infos." + e.getWhoClicked().getName() + "." + "strenght" + "." + "comprada", "sim");
-                            Coffe_Gladiators.getInstance().saveConfig();
+                            MongoDBUtils.setStrenght(p,1);
                             p.sendMessage(ChatColor.GREEN + "Adquirido com sucesso. Você está com um total de " + souls + " kills!");
                             p.closeInventory();
                         }
@@ -117,9 +117,6 @@ public class UpgradeGUIEvent implements Listener {
                 }
             }
             Coffe_Gladiators.getInstance().saveConfig();
-        }
-        else {
-            return;
         }
     }
 
